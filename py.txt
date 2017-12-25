@@ -1,0 +1,31 @@
+连接
+
+def connMsSql(Cfg):
+    conn_info = 'DRIVER={SQL Server};DATABASE=%s;SERVER=%s;UID=%s;PWD=%s'%('gz_erp_ys','localhost','lf_erp_ys','lf_erp_ys')
+    conn = pyodbc.connect(conn_info)
+    cur = conn.cursor()
+    return cur
+	
+查询
+
+
+	cur.execute("select * from entity_xmxxb")
+	row=cur.fetchone()
+    if row:
+	print(row)
+	
+	
+插入 
+    cur.execute("insert into products(id, name) values (?, ?)", 'pyodbc', 'awesome library')
+    conn.commit()
+	
+遍历 
+
+	while 1:
+    row = cur.fetchone()
+    if not row:
+        break
+    print(row)
+	
+	
+	
